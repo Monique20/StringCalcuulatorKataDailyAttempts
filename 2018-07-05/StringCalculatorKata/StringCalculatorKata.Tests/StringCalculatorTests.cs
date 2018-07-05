@@ -1,9 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StringCalculatorKata.Tests
 {
@@ -75,6 +71,21 @@ namespace StringCalculatorKata.Tests
         {
             //Arrange
             var input = "-1, -2, -2";
+            var expected = "negatives not allowed: -1,-2,-2";
+            var sut = CreateStringCalculator();
+
+            //Act
+            var actual = Assert.Throws<Exception>((() => sut.Add(input)));
+
+            //Assert
+            Assert.AreEqual(expected, actual.Message);
+        }
+
+        [Test]
+        public void Add_GivenBothNegativeAndPositiveNumbers_ShouldThrowAnException()
+        {
+            //Arrange
+            var input = "-1, -2, -2,1,9,6";
             var expected = "negatives not allowed: -1,-2,-2";
             var sut = CreateStringCalculator();
 
