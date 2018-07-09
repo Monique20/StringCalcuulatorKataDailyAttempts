@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StringCalculatorKata
 {
@@ -20,7 +18,6 @@ namespace StringCalculatorKata
             CheckForNegativeNumbers(listOfNumbers);
 
             return listOfNumbers.Sum();
-
         }
 
         private static void CheckForNegativeNumbers(List<int> listOfNumbers)
