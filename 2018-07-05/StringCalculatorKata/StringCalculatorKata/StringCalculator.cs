@@ -32,24 +32,25 @@ namespace StringCalculatorKata
         private static List<int> AddNumbersToList(string[] splitNumbers)
         {
             var listOfNumbers = new List<int>();
-
-            foreach (var value in splitNumbers)
-            {
-                var number = int.Parse(value);
-                listOfNumbers.Add(number);
-                RemoveIfGreaterThan1000(listOfNumbers, number);
-            }
-
-            return listOfNumbers;
+            var numb = splitNumbers.Select(number => int.Parse(number));
+            listOfNumbers.AddRange(numb);
+            //foreach (var value in splitNumbers)
+            //{
+            //    var number = int.Parse(value);
+            //    listOfNumbers.Add(number);
+            //    RemoveIfGreaterThan1000(listOfNumbers, number);
+            //}
+            //var validNumbers = listOfNumbers.Where(n => n < 1000).ToList();
+            return listOfNumbers.Where(n => n <= 1000).ToList();
         }
 
-        private static void RemoveIfGreaterThan1000(List<int> listOfNumbers, int number)
-        {
-            if (number > 1000)
-            {
-                listOfNumbers.Remove(number);
-            }
-        }
+        //private static void RemoveIfGreaterThan1000(List<int> listOfNumbers, int number)
+        //{
+        //    if (number > 1000)
+        //    {
+        //        listOfNumbers.Remove(number);
+        //    }
+        //}
 
         private static string[] SplitNumbers(string numbers)
         {
