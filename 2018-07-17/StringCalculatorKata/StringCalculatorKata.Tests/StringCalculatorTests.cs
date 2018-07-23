@@ -58,5 +58,21 @@ namespace StringCalculatorKata.Tests
             Assert.AreEqual(expected, actual);
 
         }
+
+        [TestCase("1\n8,1", 10)]
+        [TestCase("5,1,2,3,1", 12)]
+        [TestCase("10,1,4,5,2", 22)]
+        public void Add_GivenNewLineDelimiter_ShouldReturnTheSum(string input, int expected)
+        {
+            //Arrange
+            var sut = new StringCalculator();
+
+            //Act
+            var actual = sut.Add(input);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 }
